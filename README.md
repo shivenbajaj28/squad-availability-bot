@@ -78,7 +78,7 @@ python smoke_test.py
 Railway keeps the bot running around the clock and, unlike Render's free web tier,
 does not spin down when idle. The bot uses long polling, so it needs no public URL.
 
-1. Push this repo to GitHub (see below)
+1. Push this repo to GitHub
 2. On [railway.app](https://railway.app), create a project from your GitHub repo
 3. Under Variables, add `BOT_TOKEN`, `ADMIN_IDS`, `TZ_NAME=Asia/Singapore`,
    `REMINDER_LEAD_HOURS=24`, and `DB_PATH=/data/squad.db`
@@ -92,20 +92,6 @@ Render works too: create a **Background Worker**, not a Web Service, with build
 command `pip install -r requirements.txt` and start command `python bot.py`. Add a
 persistent disk for the database.
 
-## Push to GitHub
-
-```bash
-git init
-git add .
-git commit -m "Squad availability bot v1"
-git branch -M main
-git remote add origin https://github.com/<your-username>/squad-availability-bot.git
-git push -u origin main
-```
-
-`.env` and `*.db` are already in `.gitignore`. Check `git status` before the first
-commit anyway. A leaked bot token means anyone can post fixtures as you. If it does
-leak, send `/revoke` to BotFather.
 
 ## How it stores things
 
